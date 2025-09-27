@@ -3,11 +3,11 @@ import { FiArrowRight } from 'react-icons/fi';
 
 const BookDemo = () => {
   return (
-    <div className="flex items-center justify-center py-12 px-4 bg-white">
+    <div className="w-full px-0 -mt-8"> {/* Full width, no horizontal padding */}
       <div
-        className="flex flex-col lg:flex-row items-center justify-between w-full max-w-5xl rounded-2xl shadow-lg"
+        className="flex flex-col lg:flex-row items-center justify-between w-full rounded-2xl shadow-lg mx-auto max-w-7xl px-4"
         style={{
-          background: 'linear-gradient(90deg, #1554b0 0%, #207acb 100%)', // Blue card
+          background: 'linear-gradient(90deg, #1554b0 0%, #207acb 100%)',
         }}
       >
         {/* Left Content */}
