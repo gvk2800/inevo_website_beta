@@ -1,0 +1,168 @@
+/* Variables (adjust as needed) */
+$primary: #00b3b3;
+$bg: #f7fcfb;
+$card-bg: #ffffff;
+$text: #222;
+$muted: #6b6b6b;
+$shadow: 0 6px 18px rgba(15, 15, 15, 0.08);
+$dark-text: #1a1a1a;
+
+.services-flip {
+  padding: 2rem;
+  background: $bg;
+  display: flex;
+  justify-content: center;
+
+  &__grid {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .flip-card {
+    perspective: 1200px;
+    cursor: pointer;
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 0 4px rgba($primary, 0.12);
+      border-radius: 14px;
+    }
+
+    &__inner {
+      position: relative;
+      width: 100%;
+      min-height: 260px; /* keep consistent height */
+      transition: transform 0.65s;
+      transform-style: preserve-3d;
+      border-radius: 14px;
+    }
+
+    &.is-flipped .flip-card__inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Face */
+    &__face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 14px;
+      box-shadow: $shadow;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.6rem;
+      background: $card-bg;
+    }
+
+    &__face--front {
+      .card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .card-icon {
+            width: 90px;   // was 64px
+            height: 90px;
+            margin-bottom: 0.8rem;
+            border: 3px solid #D7EEEE ;
+            border-radius: 50%;
+            padding: 12px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+            }
+        }
+
+        .card-title {
+            font-weight: 700;           // font-bold
+            color: $dark-text;          // text-dark-text (use your variable or hex like #1a1a1a)
+            max-width: 56rem;           // max-w-4xl (56rem = 896px)
+            margin-left: auto;          // mx-auto
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .card-desc {
+          font-size: 0.92rem;
+          color: $muted;
+          max-width: 220px;
+        }
+      }
+    }
+
+    &__face--back {
+      transform: rotateY(180deg);
+      background: linear-gradient(180deg, #ffffff, #fbfffe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.4rem;
+
+      .card-back-content {
+        text-align: left;
+        width: 100%;
+
+        .back-heading {
+          font-size: 1.05rem;
+          margin: 0 0 0.6rem 0;
+          color: $text;
+          text-align: center;
+        }
+
+        .back-list {
+          list-style: disc;
+          margin-left: 1rem;
+          color: $text;
+          font-size: 0.95rem;
+          line-height: 1.4;
+
+          li {
+            margin-bottom: 0.6rem;
+            span {                          // apply truncation to span
+                display: -webkit-box;         
+                -webkit-line-clamp: 3;        // max 3 lines
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .services-flip__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .services-flip__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flip-card {
+    &__inner {
+      min-height: 300px; /* a bit taller on mobile if needed */
+    }
+
+    &__face--front .card-content .card-desc {
+      max-width: 100%;
+    }
+  }
+}
+
+
