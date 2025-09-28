@@ -7,13 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-blue': '#00C9C8',
-        'brand-teal-light': '#70E5E9',
-        'dark-text': '#1E293B',
+        "brand-blue": "#00C9C8",
+        "brand-teal-light": "#70E5E9",
+        "dark-text": "#1E293B",
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-      },
+        'sans': ['Inter', 'sans-serif'],
+      }
     },
   },
   plugins: [],
