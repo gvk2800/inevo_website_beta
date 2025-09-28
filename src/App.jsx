@@ -6,6 +6,8 @@ import BookDemo from './components/BookDemo';
 import OurService from './components/OurService';
 import Blog from './components/Blog';
 import ContactUs from './components/ContactUs';
+import Services from './components/services/Services';
+import Faqs from './components/faqs/Faqs';
 
 function App() {
   return (
@@ -18,10 +20,13 @@ function App() {
       <MainSection />
       <Solutions />
       <BookDemo />
+      <Services />
       <OurService />
+      <Faqs/>
       <Blog />
       <ContactUs />
       </div>
+      
     </div>
   )
 }
