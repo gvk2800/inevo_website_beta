@@ -25,10 +25,10 @@ const Blog = () => {
             </div>
             <div className="p-4 md:p-6 flex flex-col gap-3 md:gap-4">
               <h3 className="text-lg md:text-xl lg:text-2xl font-extrabold text-gray-900 leading-snug">
-                How does AI help in Quoting: Where it Thrives & Where it Fails?
+                 Where AI Thrives in Insurance Quoting — Real Wins, Real Use Cases
               </h3>
               <p className="text-gray-700 text-sm md:text-base">
-                Across the U.S. insurance ecosystem, from mid-market...
+              The promise of AI in insurance quoting is loud. Vendors walk...
               </p>
               <button className="ml-auto bg-teal-600 text-white py-2 md:py-2.5 px-4 md:px-5 rounded-lg font-semibold hover:bg-teal-700 transition-colors text-sm md:text-base">
                 Read more
@@ -47,10 +47,10 @@ const Blog = () => {
             </div>
             <div className="p-4 md:p-6 flex flex-col gap-3 md:gap-4">
               <h3 className="text-lg md:text-xl lg:text-2xl font-extrabold text-gray-900 leading-snug">
-                How does AI help in Quoting: Where it Thrives & Where it Fails?
+              Where AI Still Fails in Insurance Quoting — Lessons for the Cautious Optimist
               </h3>
               <p className="text-gray-700 text-sm md:text-base">
-                Across the U.S. insurance ecosystem, from mid-market...
+              We all want to believe AI is the magic bullet. But quoting workflows...
               </p>
               <button className="ml-auto bg-teal-600 text-white py-2 md:py-2.5 px-4 md:px-5 rounded-lg font-semibold hover:bg-teal-700 transition-colors text-sm md:text-base">
                 Read more
@@ -72,7 +72,7 @@ const Blog = () => {
                 How does AI help in Quoting: Where it Thrives & Where it Fails?
               </h3>
               <p className="text-gray-700 text-sm md:text-base">
-                Across the U.S. insurance ecosystem, from mid-market...
+              The promise of AI in insurance is big. But the reality in production...
               </p>
               <button className="ml-auto bg-teal-600 text-white py-2 md:py-2.5 px-4 md:px-5 rounded-lg font-semibold hover:bg-teal-700 transition-colors text-sm md:text-base">
                 Read more

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';   // ✅ import EmailJS
 
 const ContactUs = () => {
   const [form, setForm] = useState({
@@ -7,6 +8,7 @@ const ContactUs = () => {
     email: '',
     message: '',
   });
+  const [sending, setSending] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,8 +17,35 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Basic UI handling only
-    alert('Thanks! Your message is captured locally.');
+    setSending(true);
+
+    // Map form fields to the template variables
+    const templateParams = {
+      name: form.fullName,
+      contact: form.phone,
+      email: form.email,
+      message: form.message,
+      time: new Date().toLocaleString(), // optional for {{time}}
+    };
+
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,  // or your hardcoded service ID
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // template ID from EmailJS
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY   // public key from EmailJS
+      )
+      .then(
+        () => {
+          alert('✅ Message sent successfully!');
+          setForm({ fullName: '', phone: '', email: '', message: '' });
+        },
+        (error) => {
+          console.error('EmailJS error:', error);
+          alert('❌ Failed to send message. Please try again.');
+        }
+      )
+      .finally(() => setSending(false));
   };
 
   return (
@@ -36,57 +65,48 @@ const ContactUs = () => {
         {/* Right form */}
         <div>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <input
-                type="text"
-                name="fullName"
-                value={form.fullName}
-                onChange={handleChange}
-                placeholder="Full Name*"
-                required
-                className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-400"
-              />
-            </div>
-            <div>
-              <input
-                type="tel"
-                name="phone"
-                value={form.phone}
-                onChange={handleChange}
-                placeholder="Contact Number*"
-                required
-                className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-400"
-              />
-            </div>
-            <div>
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="Business Email*"
-                required
-                className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-400"
-              />
-            </div>
-            <div>
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="Message"
-                rows={4}
-                className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-400"
-              />
-            </div>
-            <div>
-              <button
-                type="submit"
-                className="w-full rounded-xl bg-[#D8EFEF] text-[#1f2937] font-semibold py-3 tracking-wide hover:bg-[#cfe9e9] transition-colors"
-              >
-                Submit
-              </button>
-            </div>
+            <input
+              type="text"
+              name="fullName"
+              value={form.fullName}
+              onChange={handleChange}
+              placeholder="Full Name*"
+              required
+              className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-400"
+            />
+            <input
+              type="tel"
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
+              placeholder="Contact Number*"
+              required
+              className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-400"
+            />
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="Business Email*"
+              required
+              className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-400"
+            />
+            <textarea
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              placeholder="Message"
+              rows={4}
+              className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-400"
+            />
+            <button
+              type="submit"
+              disabled={sending}
+              className="w-full rounded-xl bg-[#D8EFEF] text-[#1f2937] font-semibold py-3 tracking-wide hover:bg-[#cfe9e9] transition-colors disabled:opacity-70"
+            >
+              {sending ? 'Sending...' : 'Submit'}
+            </button>
           </form>
         </div>
       </div>
@@ -95,5 +115,3 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-
-
