@@ -1,34 +1,25 @@
-import Header from './components/Header'
-import Hero from './components/Hero'
-import MainSection from './components/MainSection'
-import Solutions from './components/Solutions';
-import BookDemo from './components/BookDemo';
-import OurService from './components/OurService';
-import Blog from './components/Blog';
-import ContactUs from './components/ContactUs';
-import Services from './components/services/Services';
-import Faqs from './components/faqs/Faqs';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/landing-page/LandingPage";
+import Solutions from "./pages/solutions/Solutions";
+import ContactUs from "./pages/contact-us/ContactUs";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="font-sans">
-      <Header />
-      <div style={{
-          background: '#F3F9F9',
-        }}>
-      <Hero />
-      <MainSection />
-      <Solutions />
-      <BookDemo />
-      <Services />
-      <OurService />
-      <Faqs/>
-      <Blog />
-      <ContactUs />
+    <Router>
+      <div className="font-sans">
+        <Header />
+        {/* Push content below the fixed header */}
+        <main className="pt-14 md:pt-20">
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/solutions" element={<Solutions />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+          </Routes>
+        </main>
       </div>
-      
-    </div>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
