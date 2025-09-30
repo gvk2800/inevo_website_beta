@@ -3,6 +3,8 @@ import LandingPage from "./pages/landing-page/LandingPage";
 import Solutions from "./pages/solutions/Solutions";
 import ContactUs from "./pages/contact-us/ContactUs";
 import Header from "./components/Header";
+import Servicepage from "./pages/services/Servicepage";
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/services" element={<Servicepage />} />
           </Routes>
         </main>
       </div>

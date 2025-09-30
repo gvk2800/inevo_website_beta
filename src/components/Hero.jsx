@@ -6,7 +6,7 @@ const Hero = () => {
       <div className="md:w-1/2 text-center md:text-left px-8 md:px-16">
         <h1 className="text-4xl md:text-5xl font-extrabold text-dark-text leading-tight">
           <span className="block">THE ONLY</span>
-          <span className="text-brand-blue">AI-Powered Solutions</span>
+          <span className="text-brand-blue">AI-Powered Insurance Distribution Platform</span>
           <span className="block">That Brokers, Agents, MGAs & Insurers Ever Need!</span>
         </h1>
         <p className="mt-4 text-lg text-gray-600">
