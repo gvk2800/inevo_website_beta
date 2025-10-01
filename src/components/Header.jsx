@@ -81,9 +81,12 @@ const Header = () => {
       </nav>
 
       {/* Desktop Book Demo button */}
-      <button className="hidden lg:block bg-teal-600 text-white font-semibold py-2 px-4 md:py-2.5 md:px-6 rounded-lg hover:bg-teal-700 transition-colors text-sm md:text-base">
+      <NavLink
+        to="/book-demo"
+        className="hidden lg:block bg-teal-600 text-white font-semibold py-2 px-4 md:py-2.5 md:px-6 rounded-lg hover:bg-teal-700 transition-colors text-sm md:text-base"
+      >
         Book Demo
-      </button>
+      </NavLink>
 
       {/* Mobile menu button */}
       <button
@@ -160,9 +163,13 @@ const Header = () => {
             Contact Us
           </NavLink>
           <div className="px-6 py-3">
-            <button className="w-full bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-teal-700 transition-colors">
+            <NavLink
+              to="/book-demo"
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-teal-700 transition-colors block text-center"
+            >
               Book Demo
-            </button>
+            </NavLink>
           </div>
         </nav>
       </div>

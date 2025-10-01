@@ -46,12 +46,11 @@ const ContactUs = () => {
       .finally(() => setSending(false));
   };
 
-  // Check if the form is completely filled
+  // Check required fields (message is optional)
   const isFormComplete =
     form.fullName.trim() !== '' &&
     form.phone.trim() !== '' &&
-    form.email.trim() !== '' &&
-    form.message.trim() !== '';
+    form.email.trim() !== '';
 
   return (
     <section className="bg-[#F3F9F9] py-12 md:py-20 px-4">

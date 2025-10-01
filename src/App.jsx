@@ -4,6 +4,7 @@ import Solutions from "./pages/solutions/Solutions";
 import ContactUs from "./pages/contact-us/ContactUs";
 import Header from "./components/Header";
 import Servicepage from "./pages/services/Servicepage";
+import BookDemo from "./pages/book-demo/BookDemo";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/services" element={<Servicepage />} />
+            <Route path="/book-demo" element={<BookDemo />} />
           </Routes>
         </main>
       </div>
