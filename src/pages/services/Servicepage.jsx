@@ -1,7 +1,7 @@
 import React from 'react'
 import Overview from '../../components/services-detailed/Overview'
 import CoreServicesOffering from '../../components/services-detailed/CoreServicesOffering'
-import WhyinEvo from '../../components/services-detailed/WhyinEvo'
+import WhyinEvo from '../../components/services-detailed/Whyinevo'
 const Servicepage = () => {
   return (
     <div>
