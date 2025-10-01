@@ -1,11 +1,38 @@
 import logo from "../assests/logo.png";
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const handleScrollToContact = () => {
+    setIsMenuOpen(false);
+
+    if (location.pathname === "/") {
+      const el = document.getElementById("contact-us-section");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/", { state: { scrollToContact: true } });
+    }
+  };
+
+  const handleScrollToBlog = () => {
+    setIsMenuOpen(false);
+
+    if (location.pathname === "/") {
+      const el = document.getElementById("blog-section");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/", { state: { scrollToBlog: true } });
+    }
+  };
 
   // Handle scroll show/hide
   useEffect(() => {
@@ -62,22 +89,18 @@ const Header = () => {
         >
           Services
         </NavLink>
-        <NavLink
-          to="/blogs"
-          className={({ isActive }) =>
-            `${navLinkClasses} ${isActive ? activeClasses : "text-gray-700"}`
-          }
+        <button
+          onClick={handleScrollToBlog}
+          className={`${navLinkClasses} text-gray-700`}
         >
           Blogs
-        </NavLink>
-        <NavLink
-          to="/contact-us"
-          className={({ isActive }) =>
-            `${navLinkClasses} ${isActive ? activeClasses : "text-gray-700"}`
-          }
+        </button>
+        <button
+          onClick={handleScrollToContact}
+          className={`${navLinkClasses} text-gray-700`}
         >
           Contact Us
-        </NavLink>
+        </button>
       </nav>
 
       {/* Desktop Book Demo button */}
@@ -140,28 +163,18 @@ const Header = () => {
           >
             Services
           </NavLink>
-          <NavLink
-            to="/blogs"
-            onClick={() => setIsMenuOpen(false)}
-            className={({ isActive }) =>
-              `px-6 py-3 block ${
-                isActive ? activeClasses : "text-gray-700"
-              } hover:text-teal-600 hover:bg-gray-50 font-medium transition-colors`
-            }
+          <button
+            onClick={handleScrollToBlog}
+            className="px-6 py-3 block text-gray-700 hover:text-teal-600 hover:bg-gray-50 font-medium transition-colors text-left"
           >
             Blogs
-          </NavLink>
-          <NavLink
-            to="/contact-us"
-            onClick={() => setIsMenuOpen(false)}
-            className={({ isActive }) =>
-              `px-6 py-3 block ${
-                isActive ? activeClasses : "text-gray-700"
-              } hover:text-teal-600 hover:bg-gray-50 font-medium transition-colors`
-            }
+          </button>
+          <button
+            onClick={handleScrollToContact}
+            className="px-6 py-3 block text-gray-700 hover:text-teal-600 hover:bg-gray-50 font-medium transition-colors text-left"
           >
             Contact Us
-          </NavLink>
+          </button>
           <div className="px-6 py-3">
             <NavLink
               to="/book-demo"
