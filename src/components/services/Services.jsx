@@ -95,8 +95,7 @@ const Services = () => {
 
                             <div className="flip-card__face flip-card__face--back">
                             <div className="card-back-content">
-                                <h4 className="back-heading text-xl font-semibold text-[#1B2428] relative inline-block pb-2 
-        after:content-[''] after:block after:w-12 after:h-[3px] after:bg-[#00B8B5] after:mx-auto after:mt-2">{s.detailsHeading}</h4>
+                                <h4 className="back-heading text-xl font-semibold text-[#1B2428] relative inline-block pb-2">{s.detailsHeading}</h4>
                                 <ul className="back-list">
                                 {s.details.map((pt, i) => (
                                     <li key={i}><span>{pt}</span></li>

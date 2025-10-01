@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 
 const BookDemo = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full px-4 md:px-0 -mt-4 md:-mt-8">
       <div
@@ -32,6 +34,7 @@ const BookDemo = () => {
           <div className="flex lg:block justify-start lg:justify-end">
             <button
               className="bg-white text-[#207acb] font-semibold py-2 md:py-3 px-4 md:px-7 rounded-full hover:bg-blue-100 transition-all duration-300 flex items-center justify-center min-w-[140px] md:min-w-[160px] shadow-md text-sm md:text-base"
+              onClick={() => navigate('/book-demo')}
             >
               Book a Demo
               <FiArrowRight className="ml-2 text-sm md:text-lg" />

@@ -37,12 +37,12 @@ const Header = () => {
       <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-200 hidden md:block"></div>
 
       {/* Logo and brand */}
-      <div className="flex items-center">
+      <NavLink to="/" className="flex items-center">
         <img src={logo} alt="InEvo AI Logo" className="h-7 md:h-9" />
         <span className="text-lg md:text-xl font-bold text-gray-800 ml-2">
           InEvo AI
         </span>
-      </div>
+      </NavLink>
 
       {/* Desktop Navigation */}
       <nav className="hidden lg:flex items-center space-x-6 xl:space-x-10">

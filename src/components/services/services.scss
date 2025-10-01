@@ -39,6 +39,7 @@ $dark-text: #1a1a1a;
       transition: transform 0.65s;
       transform-style: preserve-3d;
       border-radius: 14px;
+      
     }
 
     &.is-flipped .flip-card__inner {
@@ -68,16 +69,19 @@ $dark-text: #1a1a1a;
         text-align: center;
 
         .card-icon {
-            width: 90px;   // was 64px
-            height: 90px;
+            width: 96px;                // consistent outer circle size
+            height: 96px;
             margin-bottom: 0.8rem;
-            border: 3px solid #D7EEEE ;
+            border: 3px solid #D7EEEE;
             border-radius: 50%;
-            padding: 12px;
+            background: #ffffff;
+            display: flex;              // center icon perfectly
+            align-items: center;
+            justify-content: center;
 
             img {
-                width: 100%;
-                height: 100%;
+                width: 58px;           // fixed inner icon box so all look same
+                height: 58px;
                 object-fit: contain;
                 display: block;
             }
@@ -106,22 +110,40 @@ $dark-text: #1a1a1a;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.4rem;
+      padding: 1.8rem; /* extra breathing room so heading doesn't touch edges */
 
       .card-back-content {
-        text-align: left;
+        text-align: center; /* center heading container */
         width: 100%;
+        padding-left: 0.25rem;  /* tiny inset so long headings don't hug border */
+        padding-right: 0.25rem;
 
         .back-heading {
           font-size: 1.05rem;
-          margin: 0 0 0.6rem 0;
+          margin: 0 auto 0.6rem auto; /* center the heading itself */
           color: $text;
           text-align: center;
+          position: relative;
+          display: inline-block; /* shrink to text width */
+          
+
+          /* Centered underline spanning heading width */
+          &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #00B8B5;
+            border-radius: 2px;
+            margin: 8px auto 0 auto; /* underline follows heading width */
+          }
         }
 
         .back-list {
-          list-style: disc;
+          text-align: left; /* keep list text left-aligned */
+          display: inline-block; /* center the list block while keeping its text left */
           margin-left: 1rem;
+          list-style: disc;
           color: $text;
           font-size: 0.95rem;
           line-height: 1.4;
@@ -173,6 +195,7 @@ $dark-text: #1a1a1a;
       overflow-y: auto; /* allow scrolling if content is too long */
       
       .card-back-content {
+        
         .back-heading {
           font-size: 1rem;
           margin-bottom: 0.8rem;

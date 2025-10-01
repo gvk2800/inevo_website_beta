@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { FiHeadphones, FiBriefcase, FiShield } from 'react-icons/fi';
+// import { FiHeadphones, FiBriefcase, FiShield } from 'react-icons/fi';
+import personimg from '../assests/solutions/person_img.png'
+import agentimg from '../assests/solutions/agent_img.png'
+import secureimg from '../assests/solutions/secure_img.png'
 import { motion, AnimatePresence } from 'framer-motion';
 import greenTickIcon from '../assests/greentickicon.png';
 
 const solutionsData = {
   agents: {
-    icon: <FiHeadphones size={28} />,
+    icon: <img src={agentimg} alt="agent" />,
     title: 'Agents',
     subtitle: 'Accelerate your quote process with AI-powered Assistant',
     points: [
@@ -15,7 +18,7 @@ const solutionsData = {
     ],
   },
   brokers: {
-    icon: <FiBriefcase size={28} />,
+    icon: <img src={personimg} alt="person" />,
     title: 'Brokers',
     subtitle: 'Scale your operations with automated workflows and comprehensive management tools.',
     points: [
@@ -25,7 +28,7 @@ const solutionsData = {
     ],
   },
   insuranceCompanies: {
-    icon: <FiShield size={28} />,
+    icon: <img src={secureimg} alt="secure" />,
     title: 'Insurance Companies',
     subtitle: 'Receive high-quality, pre-validated submissions with comprehensive risk analysis.',
     points: [

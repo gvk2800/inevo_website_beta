@@ -22,9 +22,9 @@ const DemoComponent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation (check if slot is picked)
-    if (!formData.fullName || !formData.contactNumber || !formData.businessEmail) {
-      alert("Please fill all required fields.");
+    // Basic validation (all required except requirements)
+    if (!formData.fullName || !formData.contactNumber || !formData.businessEmail || !formData.selectedSlot) {
+      alert("Please complete all required fields and book a slot.");
       return;
     }
 
@@ -51,95 +51,32 @@ const DemoComponent = () => {
         <div className="form-section">
           <h1 className="demo-title">Book a Demo</h1>
           
+          {/* Keeping only the Book a slot section. Other form fields are commented out for now. */}
+          {/*
           <form onSubmit={handleSubmit} className="demo-form">
-            {/* Full Name */}
-            <div className="form-group">
-              <label htmlFor="fullName" className="form-label">
-                Full Name<span className="required">*</span>
-              </label>
-              <input
-                type="text"
-                id="fullName"
-                name="fullName"
-                placeholder="Full Name"
-                value={formData.fullName}
-                onChange={handleInputChange}
-                className="form-input"
-                required
-              />
-            </div>
+            ... Full Name, Contact Number, Business Email, Requirements, and Submit button are commented out ...
+          </form>
+          */}
 
-            {/* Contact Number */}
-            <div className="form-group">
-              <label htmlFor="contactNumber" className="form-label">
-                Contact Number<span className="required">*</span>
-              </label>
-              <input
-                type="tel"
-                id="contactNumber"
-                name="contactNumber"
-                placeholder="Contact Number"
-                value={formData.contactNumber}
-                onChange={handleInputChange}
-                className="form-input"
-                required
-              />
-            </div>
-
-            {/* Business Email */}
-            <div className="form-group">
-              <label htmlFor="businessEmail" className="form-label">
-                Business Email<span className="required">*</span>
-              </label>
-              <input
-                type="email"
-                id="businessEmail"
-                name="businessEmail"
-                placeholder="Business Email"
-                value={formData.businessEmail}
-                onChange={handleInputChange}
-                className="form-input"
-                required
-              />
-            </div>
-
-            {/* Requirements */}
-            <div className="form-group">
-              <label htmlFor="requirements" className="form-label">
-                Brief your requirements
-              </label>
-              <textarea
-                id="requirements"
-                name="requirements"
-                placeholder="Brief your requirements"
-                value={formData.requirements}
-                onChange={handleInputChange}
-                className="form-textarea"
-                rows="4"
-              />
-            </div>
-
-            {/* Slot Picker (optional – for storing slot info) */}
-            <div className="form-group">
-              <label className="form-label">Book a slot</label>
-              <button
-                type="button"
-                className="slot-button"
-                onClick={() => window.open(
+          <div className="center-wrap">
+            <button
+              type="button"
+              className="slot-button"
+              onClick={() => {
+                setFormData(prev => ({
+                  ...prev,
+                  selectedSlot: new Date().toISOString()
+                }));
+                window.open(
                   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2-JNMDToNGvfra2zW4EwEzjrFehyRwTtrfgZIpyTNqpTFAfql9UykxmZbhkj1cIUKw5JosyaXw?gv=true",
                   "Book a Slot",
                   "width=1000,height=800"
-                )}
-              >
-                Book a slot
-              </button>
-            </div>
-
-            {/* Submit */}
-            <button type="submit" className="submit-button">
-              Submit
+                );
+              }}
+            >
+              Book a slot
             </button>
-          </form>
+          </div>
         </div>
       </div>
     </div>

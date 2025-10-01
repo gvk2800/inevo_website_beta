@@ -17,6 +17,7 @@
   border-radius: 20px;
   padding: 3rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  align-items: center; /* vertically center grid items */
 }
 
 /* Left Section - Image */
@@ -50,31 +51,35 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  top: 4px; /* slight downward nudge; adjusted per feedback */
 }
 
 .demo-title {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
   position: relative;
+  text-align: center;
 }
 
-.demo-title::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #20B2AA, #48D1CC);
-  border-radius: 2px;
-}
+.demo-title::after { display: none; }
 
 .demo-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+/* Center-only layout for slot section */
+.slot-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .form-group {
@@ -126,7 +131,7 @@
 }
 
 .slot-button {
-  width: 100%;
+  width: 70%;
   padding: 1rem;
   border: 2px solid #20B2AA;
   border-radius: 12px;
@@ -155,6 +160,13 @@
 
 .slot-text {
   font-weight: 500;
+}
+.center-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .calendar-icon {
