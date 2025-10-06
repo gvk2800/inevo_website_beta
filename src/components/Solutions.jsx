@@ -7,8 +7,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import greenTickIcon from '../assests/greentickicon.png';
 
 const solutionsData = {
+  customers: {
+    icon: <img src={personimg} alt="customer" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain" />,
+    title: 'Customers',
+    subtitle: 'Customers get faster, fairer quotes and better service.',
+    points: [
+      { title: 'Better experience', description: 'Fewer and easy questions, smoother journey' },
+      { title: 'Shorter wait time', description: 'Quotes delivered in seconds, not hours' },
+      { title: 'More accurate pricing', description: 'Dynamic risk analysis leads to fairer, more transparent quotes' },
+    ],
+  },
   agents: {
-    icon: <img src={agentimg} alt="agent" />,
+    icon: <img src={agentimg} alt="agent" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain" />,
     title: 'Agents',
     subtitle: 'Accelerate your quote process with AI-powered Assistant',
     points: [
@@ -17,8 +27,9 @@ const solutionsData = {
       { title: 'Customer Data Ingestion', description: 'Access previous applications and auto-populate recurring client data' },
     ],
   },
+  
   brokers: {
-    icon: <img src={personimg} alt="person" />,
+    icon: <img src={personimg} alt="person" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain" />,
     title: 'Brokers',
     subtitle: 'Scale your operations with automated workflows and comprehensive management tools.',
     points: [
@@ -28,7 +39,7 @@ const solutionsData = {
     ],
   },
   insuranceCompanies: {
-    icon: <img src={secureimg} alt="secure" />,
+    icon: <img src={secureimg} alt="secure" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain" />,
     title: 'Insurance Companies',
     subtitle: 'Receive high-quality, pre-validated submissions with comprehensive risk analysis.',
     points: [
@@ -45,6 +56,15 @@ const Solutions = () => {
 
   return (
     <div className="py-12 md:py-24 px-4 bg-slate-50">
+      <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
       <div className="text-center mb-8 md:mb-16">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#22C5C1]">Solutions</h2>
         <p className="mt-4 text-lg md:text-xl font-bold text-dark-text max-w-4xl mx-auto">
@@ -54,8 +74,33 @@ const Solutions = () => {
           Delivering ultra-fast commercial insurance quotes AI-driven risk insights, and seamless workflows for Agents, Brokers, and MGAs, all powered by secure, cloud-native technology.
         </p>
       </div>
+      
+      {/* Mobile Horizontal Scroll Section */}
+      <div className="md:hidden mb-6">
+        <div className="relative">
+          <div className="flex overflow-x-auto scrollbar-hide gap-3 px-4 pb-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            {Object.keys(solutionsData).map((key) => (
+              <MobileTabCard
+                key={key}
+                icon={solutionsData[key].icon}
+                label={solutionsData[key].title}
+                tabName={key}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              />
+            ))}
+            {/* Spacer to show partial next card */}
+            <div className="w-[80px] flex-shrink-0"></div>
+          </div>
+          {/* Fade indicators */}
+          <div className="absolute top-0 right-0 w-8 h-full bg-gradient-to-l from-slate-50 to-transparent pointer-events-none"></div>
+          <div className="absolute top-0 left-0 w-8 h-full bg-gradient-to-r from-slate-50 to-transparent pointer-events-none"></div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-6 border-2 border-brand-teal-light flex flex-col md:flex-row gap-4 md:gap-6">
-        <div className="flex md:flex-col justify-center md:justify-start gap-3 md:gap-4 w-full md:w-1/3">
+        {/* Desktop Vertical Tabs - Hidden on mobile */}
+        <div className="hidden md:flex flex-col justify-center md:justify-start gap-3 md:gap-4 w-full md:w-1/3">
           {Object.keys(solutionsData).map((key) => (
             <TabButton 
               key={key} 
@@ -109,8 +154,29 @@ const TabButton = ({ icon, label, tabName, activeTab, setActiveTab }) => {
       onClick={() => setActiveTab(tabName)}
       className={`flex items-center text-left p-3 md:p-6 rounded-xl transition-all duration-300 w-full border-2 ${isActive ? 'bg-brand-blue text-white border-brand-blue shadow-lg' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'}`}
     >
-      <div className={`mr-3 md:mr-4 ${isActive ? 'text-white' : 'text-brand-blue'}`}>{icon}</div>
+      <div className={`mr-3 md:mr-4 ${isActive ? 'text-white' : 'text-brand-blue'} w-10 h-10 md:w-12 md:h-12 flex items-center justify-center shrink-0`}>{icon}</div>
       <span className="font-semibold text-sm md:text-lg">{label}</span>
+    </button>
+  );
+};
+
+const MobileTabCard = ({ icon, label, tabName, activeTab, setActiveTab }) => {
+  const isActive = activeTab === tabName;
+  return (
+    <button
+      onClick={() => setActiveTab(tabName)}
+      className={`flex flex-col items-center justify-center p-6 rounded-2xl transition-all duration-300 w-[240px] h-[90px] border-2 flex-shrink-0 ${
+        isActive 
+          ? 'bg-[#00C4B4] text-white border-[#00C4B4] shadow-lg' 
+          : 'bg-white text-gray-700 border-[#00C4B4] hover:bg-gray-50'
+      }`}
+    >
+      <div className={`mb-2 ${isActive ? 'text-white' : 'text-[#00C4B4]'} w-16 h-16 flex items-center justify-center`}>
+        {icon}
+      </div>
+      <span className={`font-semibold text-sm text-center leading-tight ${isActive ? 'text-white' : 'text-gray-700'}`}>
+        {label}
+      </span>
     </button>
   );
 };
