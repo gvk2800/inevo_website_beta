@@ -28,17 +28,17 @@ const Hero = () => {
     if (roleCharIndex < current.role.length) {
       timeoutId = setTimeout(() => {
         setRoleCharIndex((prev) => prev + 1);
-      }, 120);
+      }, 200);
     } else if (messageCharIndex < current.message.length) {
       timeoutId = setTimeout(() => {
         setMessageCharIndex((prev) => prev + 1);
-      }, 45);
+      }, 100);
     } else {
       timeoutId = setTimeout(() => {
         setPersonaIndex((prev) => (prev + 1) % personas.length);
         setRoleCharIndex(0);
         setMessageCharIndex(0);
-      }, 1500);
+      }, 2500);
     }
 
     return () => clearTimeout(timeoutId);
