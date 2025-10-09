@@ -1,11 +1,13 @@
-import mainImage from '../assests/main-image.png';
-import handcomImage from '../assests/handcom.png';
+import websiteGif from '../assests/website gif.gif';
 
 const MainSection = () => {
   return (
-    <div className="w-full flex flex-col items-end px-4 md:px-0">
-      <img src={mainImage} alt="Insurance document signing" className="w-full h-auto max-w-full" />
-      <img src={handcomImage} alt="Completed insurance document" className="w-full h-auto -mt-1 max-w-full" />
+    <div className="w-full flex justify-center px-4 md:px-0">
+      <img
+        src={websiteGif}
+        alt="Website demo"
+        className="w-auto max-w-full max-h-[80vh] object-contain"
+      />
     </div>
   );
 };

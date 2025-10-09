@@ -57,7 +57,7 @@ const ContactUs = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         {/* Left content */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Contact Us</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#01C9C7] mb-6">Contact Us</h2>
           <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 leading-snug mb-4">
             Let AI simplify your insurance journey — while you focus on what matters the most.
           </h3>

@@ -60,12 +60,12 @@ const Services = () => {
         <div>
             <div className="text-center mb-4 mt-16">
                 <h2 className="text-5xl font-extrabold text-brand-blue">Services</h2>
-                <p className="mt-4 text-xl font-bold text-dark-text max-w-4xl mx-auto">
-                    Guidewire Cloud
+                <p className="mt-4 text-xl font-bold text-dark-text max-w-md mx-auto">
+                    Guidewire Cloud Migration
                 </p>
-                <p className="text-xl font-bold text-dark-text max-w-4xl mx-auto">
+                {/* <p className="text-xl font-bold text-dark-text max-w-4xl mx-auto">
                     Migration
-                </p>
+                </p> */}
             </div>
             <section className="services-flip">
                 <div className="services-flip__grid">

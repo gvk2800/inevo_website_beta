@@ -40,7 +40,7 @@ const solutionsData = {
   },
   insuranceCompanies: {
     icon: <img src={secureimg} alt="secure" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain" />,
-    title: 'Insurance Companies',
+    title: 'Underwriter',
     subtitle: 'Receive high-quality, pre-validated submissions with comprehensive risk analysis.',
     points: [
       { title: 'Risk Analysis Agent', description: '(ML Model for Risk Scoring and Eligibility, Dynamic Pricing)' },
