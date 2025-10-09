@@ -83,14 +83,13 @@ const Blog = () => {
 
         {/* Explore more link */}
         <div className="text-center">
-        <a 
+          <a 
             href="#" 
             className="text-teal-600 text-base md:text-lg font-semibold hover:text-teal-700 transition-colors"
           >
             Explore more
           </a>
-          <div className="mx-auto mb-8 h-1 w-16 md:w-24 rounded-full bg-teal-500"></div>
-          
+          <div className="mx-auto mt-2 mb-8 h-1 w-full max-w-[120px] rounded-full bg-teal-500"></div>
         </div>
       </div>
     </section>

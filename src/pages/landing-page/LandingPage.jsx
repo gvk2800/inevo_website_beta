@@ -33,7 +33,7 @@ const LandingPage = () => {
   return (
     <div style={{ background: "#F3F9F9" }}>
         <Hero />
-        <MainSection />
+        {/* <MainSection /> */}
         <Solutions />
         <BookDemo />
         <Services />
