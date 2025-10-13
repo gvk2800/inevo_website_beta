@@ -68,18 +68,17 @@ const Solutions = () => {
       `}</style>
       <div className="text-center mb-4 md:mb-8">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#22C5C1]">Solutions</h2>
-        <p className="mt-4 text-lg md:text-xl font-bold text-dark-text max-w-4xl mx-auto">
+        <p className="mt-4 text-xl md:text-3xl font-bold text-dark-text max-w-4xl mx-auto">
           Insurance Quoting & Risk Management, Reimagined with AI
         </p>
-        <p className="mt-3 text-sm md:text-md text-gray-500 max-w-4xl mx-auto">
+        <p className="mt-4 text-lg text-gray-600 text-center max-w-4xl mx-auto leading-relaxed">
           Delivering ultra-fast commercial insurance quotes AI-driven risk insights, and seamless workflows for Agents, Brokers, and MGAs, all powered by secure, cloud-native technology.
         </p>
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 w-full">
           <img 
             src={websiteGif} 
             alt="Website demonstration" 
-            className="max-w-full h-auto rounded-lg shadow-lg"
-            style={{ maxWidth: '800px', width: '100%' }}
+            className="w-full h-auto rounded-lg shadow-lg object-contain"
           />
         </div>
         <h3 className="mt-12 text-2xl md:text-3xl font-extrabold text-[#22C5C1]">Benefits</h3>

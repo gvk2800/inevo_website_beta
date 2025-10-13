@@ -52,13 +52,16 @@ const Hero = () => {
           {/* Static first line */}
           <span className="block">Accelerate Insurance Sales with AI</span>
 
-          {/* Dynamic lines with typewriter effect (role + message) */}
-          <span className="text-brand-blue block mt-2">
-            {personas[personaIndex].role.slice(0, roleCharIndex)}
-          </span>
-          <span className="block mt-2 text-2xl md:text-3xl">
-            {personas[personaIndex].message.slice(0, messageCharIndex)}
-          </span>
+          {/* Fixed height container for dynamic text to prevent layout shifts */}
+          <div className="h-96 md:h-48 flex flex-col justify-start">
+            {/* Dynamic lines with typewriter effect (role + message) */}
+            <span className="text-brand-blue block mt-2">
+              {personas[personaIndex].role.slice(0, roleCharIndex)}
+            </span>
+            <span className="block mt-2 text-2xl md:text-3xl">
+              {personas[personaIndex].message.slice(0, messageCharIndex)}
+            </span>
+          </div>
 
           {/* Static fourth line */}
           {/* <span className="block mt-4">

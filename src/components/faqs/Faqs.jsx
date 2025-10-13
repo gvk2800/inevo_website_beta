@@ -40,7 +40,7 @@ const Faqs = () => {
     };
     return (
         <div>
-            <div className="text-center mb-16 mt-16">
+            <div className="text-center mb-12 md:mb-16 mt-8 md:mt-12">
                 <h2 className="text-5xl font-extrabold text-brand-blue">FAQs</h2>
             </div>
             <div className="faq-container">

@@ -2,7 +2,8 @@ import React from 'react';
 
 // Importing partner logos
 import RapidBotz from '../assests/RapidBotz.png';
-import Coherent from '../assests/Coherent.png';
+// import Coherent from '../assests/Coherent.jpg';
+import Coherent from '../assests/Coherent.jpg';
 import Aws from '../assests/Aws.png';
 import InvoiceCloud from '../assests/Invoic Cloud.png';
 import GoogleCloud from '../assests/Google Cloud.png';
@@ -17,16 +18,16 @@ const partners = [
 
 const OurService = () => {
   return (
-    <div className="py-12">
+    <div className="py-8 md:py-12">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-[#22C5C1] mb-8">
           Our Partners
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 items-center justify-items-center">
           {partners.map((partner) => (
             <div
               key={partner.name}
-              className="p-4 flex justify-center items-center h-28"
+              className="p-4 flex justify-center items-center h-24 w-full md:h-28 md:w-56 bg-white rounded-xl shadow-sm border border-gray-100 mx-auto"
             >
               <img
                 src={partner.logo}
